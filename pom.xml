@@ -58,6 +58,12 @@
 			<version>2.7</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.eluder.coveralls</groupId>
+			<artifactId>coveralls-maven-plugin</artifactId>
+			<version>4.3.0</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
