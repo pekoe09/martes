@@ -1,7 +1,10 @@
 package martes.domain;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -14,6 +17,8 @@ public class Company extends BaseModel {
 	private String description;
 	@ManyToOne
 	private Organization organization;
+	@OneToMany(mappedBy = "company")
+	private Set<Asset> assets;
 	@Version
 	@JsonIgnore
 	private Long version;	
