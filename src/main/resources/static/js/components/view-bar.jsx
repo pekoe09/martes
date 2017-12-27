@@ -1,24 +1,23 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class ViewList extends Component {
+class ViewBar extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {};
     }
 
     render() {
         return (
-            <div>
+            <div className='martes-view-bar'>
 
             </div>
         )
     }
 }
 
-ViewList.propTypes = {
-    data: PropTypes.object
+ViewBar.propTypes = {
+    
 }
 
-export default ViewList;
+export default ViewBar;

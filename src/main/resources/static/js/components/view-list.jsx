@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class ViewBar extends Component {
+class ViewList extends Component {
 
     constructor(props) {
         super(props);
@@ -10,15 +10,15 @@ class ViewBar extends Component {
 
     render() {
         return (
-            <div>
+            <div className='martes-view-list'>
 
             </div>
         )
     }
 }
 
-ViewBar.propTypes = {
+ViewList.propTypes = {
     data: PropTypes.object
 }
 
-export default ViewBar;
+export default ViewList;
