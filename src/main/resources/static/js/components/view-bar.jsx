@@ -5,12 +5,11 @@ class ViewBar extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {};
     }
 
     render() {
         return (
-            <div>
+            <div className='martes-view-bar'>
 
             </div>
         )
@@ -18,7 +17,7 @@ class ViewBar extends Component {
 }
 
 ViewBar.propTypes = {
-    data: PropTypes.object
+    
 }
 
 export default ViewBar;

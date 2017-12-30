@@ -10,7 +10,7 @@ class ViewList extends Component {
 
     render() {
         return (
-            <div>
+            <div className='martes-view-list'>
 
             </div>
         )

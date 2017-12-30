@@ -1,24 +1,26 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import ViewList from './view-list';
-import ViewBar from './view-bar';
+import ViewList from '../components/view-list';
+import ViewBar from '../components/view-bar';
 
 class ViewPanel extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            data: {}
+        };
     }
 
     render() {
         return (
-            <div>
+            <div className='martes-view-panel'>
                 <ViewBar
-                    data={this.props.data}
+                    
                 />
                 <ViewList
-                    data={this.props.data}
+                    data={this.state.data}
                 />
             </div>
         )
@@ -26,7 +28,7 @@ class ViewPanel extends Component {
 }
 
 ViewPanel.propTypes = {
-    data: PropTypes.object
+    selectedView: PropTypes.string,
 }
 
 export default ViewPanel;

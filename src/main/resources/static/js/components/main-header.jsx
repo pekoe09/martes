@@ -1,32 +1,32 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import MainLogo from './main-logo';
-import MainNav from './main-nav';
+import MainBar from './main-bar';
+import UserPanel from './user-panel';
 
-class MainBar extends Component {
+class MainHeader extends Component {
 
     constructor(props) {
-        super(props);        
+        super(props);
     }
 
     render() {
         return (
-            <div className='martes-main-bar'>
-                <MainLogo />
-                <MainNav
+            <div className='martes-main-header'>
+                <MainBar 
                     selectedView={this.props.selectedView}
                     setView={this.props.setView}
                 />
+                <UserPanel />
             </div>
         )
     }
 
 }
 
-MainBar.propTypes = {
+MainHeader.propTypes = {
     selectedView: PropTypes.string,
     setView: PropTypes.func
 }
 
-export default MainBar;
+export default MainHeader;
