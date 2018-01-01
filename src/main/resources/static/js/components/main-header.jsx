@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import MainBar from './main-bar';
-import UserPanel from './user-panel';
+import MainBar from './main-bar.jsx';
+import UserPanel from './user-panel.jsx';
 
 class MainHeader extends Component {
 
@@ -13,6 +13,7 @@ class MainHeader extends Component {
     render() {
         return (
             <div className='martes-main-header'>
+                <h3>MainHeader</h3>
                 <MainBar 
                     selectedView={this.props.selectedView}
                     setView={this.props.setView}

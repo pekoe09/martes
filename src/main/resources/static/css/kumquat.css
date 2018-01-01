@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+.martes-main-header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 5px;
+	background-color: #e6ffff;
+}
+
+.martes-main-bar {
+	padding: 5px;
+	float: left;
+	width: 80%;
+	background-color: #80ffff;	
+}
+
+.martes-main-logo {
+	padding: 5px;
+	float: left;
+	width: 100px;
+	background-color: #00e6e6;
+}
+
+.martes-main-nav {
+	padding: 5px;
+	float: right;
+	background-color: #00e6e6;
+}
+
+.martes-user-panel {
+	padding: 5px;
+	float: right;
+	background-color: #008080;
+}
+
+.menu-enter {
+	max-height: 0px;
+	-webkit-transition: max-height ls ease;
+	overflow: hidden;
+}
+
+.menu-enter.menu-enter-active {
+	height: auto;
+	max-height: 100px;
+}
+
+.menu-leave {
+	max-height: 100px;
+	-webkit-transition: max-height ls ease;
+}
+
+.menu-leave.menu-leave-active {
+	overflow: hidden;
+	max-height:0px;
+}
+
+nav {
+	background-color: white;
+	display: block;
+	margin: 8px 12px 8px 12px;
+	overflow: hidden;
+}
+
+nav ul li {
+	display: inline-block;
+	list-style-type: none;
+}
+
+nav ul li a {
+	display: block;
+	text-decoration: none;
+}

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import ViewList from '../components/view-list';
-import ViewBar from '../components/view-bar';
+import ViewList from '../components/view-list.jsx';
+import ViewBar from '../components/view-bar.jsx';
 
 class ViewPanel extends Component {
 
@@ -16,6 +16,7 @@ class ViewPanel extends Component {
     render() {
         return (
             <div className='martes-view-panel'>
+                <h3>ViewPanel</h3>
                 <ViewBar
                     
                 />

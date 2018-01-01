@@ -6,7 +6,7 @@ class MainLogo extends Component {
     render() {
         return (
             <div className='martes-main-logo'>
-
+                <h3>MainLogo</h3>
             </div>
         )
     }

@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 
-import MainHeader from '../components/main-header';
-import ViewPanel from './view-panel';
+import MainHeader from '../components/main-header.jsx';
+import ViewPanel from './view-panel.jsx';
 
 class MainPanel extends Component {
 
-    constructor() {
+    constructor(props) {
+        super(props);
         this.state = {
             selectedView: 'assetList'
-        }
+        };
     }
 
-    setView = (viewName) => {
+    setView(viewName) {
         this.setState({
             selectedView: viewName
         });
@@ -19,13 +20,16 @@ class MainPanel extends Component {
 
     render() {
         return (
-            <MainHeader 
-                selectedView={this.state.selectedView}
-                setView={this.setView}
-            />
-            <ViewPanel 
-                selectedView={this.state.selectedView}
-            />
+            <div className='martes-main-panel'>
+                <h3>MainPanel</h3>
+                <MainHeader 
+                    selectedView={this.state.selectedView}
+                    setView={this.setView}
+                />
+                <ViewPanel 
+                    selectedView={this.state.selectedView}
+                />
+            </div>
         )
     }
 

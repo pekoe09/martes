@@ -10,7 +10,7 @@ class ViewBar extends Component {
     render() {
         return (
             <div className='martes-view-bar'>
-
+                <h3>ViewBar</h3>
             </div>
         )
     }

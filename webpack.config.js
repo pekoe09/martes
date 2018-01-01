@@ -1,5 +1,5 @@
 var path = require('path');
-const webpack = require('webpack');
+var webpack = require('webpack');
 
 module.exports = {
     entry: './src/main/resources/static/js/app.jsx',
@@ -17,8 +17,9 @@ module.exports = {
                 loader: 'babel-loader',
                 query: {
                     cacheDirectory: true,
-                    presets: ['es2015', 'react']
-                }
+                    presets: ['env', 'react'],
+                    plugins: 'transform-object-rest-spread'
+                },                
             }
         ]
     },

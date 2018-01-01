@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import MainLogo from './main-logo';
-import MainNav from './main-nav';
+import MainLogo from './main-logo.jsx';
+import MainNav from './main-nav.jsx';
 
 class MainBar extends Component {
 
@@ -13,6 +13,7 @@ class MainBar extends Component {
     render() {
         return (
             <div className='martes-main-bar'>
+                <h3>MainBar</h3>
                 <MainLogo />
                 <MainNav
                     selectedView={this.props.selectedView}
