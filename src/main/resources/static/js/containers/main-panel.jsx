@@ -10,9 +10,11 @@ class MainPanel extends Component {
         this.state = {
             selectedView: 'assetList'
         };
+        this.setView = this.setView.bind(this);
     }
 
     setView(viewName) {
+        console.log("SetView called with " + viewName);
         this.setState({
             selectedView: viewName
         });

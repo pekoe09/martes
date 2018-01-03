@@ -19,14 +19,28 @@ class MainNav extends Component {
                 <ul>
                     <NavDropdown 
                         menuHeader={"Home"}
+                        clickHandler={this.props.setView}
+                        menuTarget={"home"}
                         menuItems={[]}
                     />
                     <NavDropdown
                         menuHeader={"Assets"}
-                        menuItems={[]}
+                        menuItems={[
+                        {
+                            itemName: "Asset list",
+                            clickHandler: this.props.setView,
+                            target: "assetList"
+                        }, 
+                        {
+                            itemName: "New asset",
+                            clickHandler: this.props.setView,
+                            target: "assetAdd"
+                        }]}
                     />
                     <NavDropdown 
                         menuHeader={"Admin"}
+                        clickHandler={this.props.setView}
+                        menuTarget={"admin"}
                         menuItems={[]}
                     />
                 </ul>

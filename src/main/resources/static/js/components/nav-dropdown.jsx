@@ -1,56 +1,46 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { CSSTransition } from 'react-transition-group';
-
-const TransitionMenu = ({ children, ...props }) => (
-        <CSSTransition
-            {...props}
-            classNames='menu'
-            timeout={1000}                    
-        >
-            {children}
-        </CSSTransition>
-);
 
 class NavDropdown extends Component {
     
     constructor(props) {
         super(props);
-        this.state = {
-            menuActive: false
-        };
-        this.toggleMenu = this.toggleMenu.bind(this);
-    }
-    
-    toggleMenu() {
-        this.setState({
-            menuaActive: !this.state.menuActive
-        });
     }
 
     render() {
-        let menu;
-        if(this.state.menuActive) {
-            menu = (
-                    <div>
-                       <ul>
-                            <li>First</li>
-                            <li>Second</li>
-                            <li>Third</li>
-                       </ul>
-                   </div>
-                            )
-        } else {
-            menu = <div></div>;
+        let menuItems = this.props.menuItems.map((item, index) => {
+            return (
+                <li key={index}>
+                    <a 
+                        href="#"
+                        onClick={() => item.clickHandler(item.target)}
+                    >
+                        {item.itemName}
+                    </a>
+                </li>
+            );
+        });
+
+        let headerAttributes = {};
+        if(this.props.clickHandler) {
+            headerAttributes.onClick = () => this.props.clickHandler(this.props.menuTarget);
         }
+
         return (
             <li id="menu">
-                <a href='#' onClick={this.toggleMenu}>
-                    {this.props.menuHeader} <span className='caret'></span>
+                <a 
+                    href='#'
+                    {...headerAttributes}
+                >
+                    {this.props.menuHeader} {this.props.menuItems.length > 0 && <i className="fa fa-caret-down"></i>}
                 </a>
-                <TransitionMenu>
-                    {menu}
-                </TransitionMenu>
+                <div>
+                    {this.props.menuItems.length > 0 && 
+                    <ul>
+                        {menuItems}
+                    </ul>
+                    }
+                </div>
             </li>
         )
     }
@@ -58,10 +48,13 @@ class NavDropdown extends Component {
 }
 
 NavDropdown.propTypes = {
-    menuHeader: PropTypes.string,
+    menuHeader: PropTypes.string.isRequired,
+    clickHandler: PropTypes.func,
+    menuTarget: PropTypes.string,
     menuItems: PropTypes.arrayOf(PropTypes.shape({
         itemName: PropTypes.string,
-        clickHandler: PropTypes.func
+        clickHandler: PropTypes.func,
+        target: PropTypes.string
     }))
 }
 
