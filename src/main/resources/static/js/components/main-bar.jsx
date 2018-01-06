@@ -13,7 +13,6 @@ class MainBar extends Component {
     render() {
         return (
             <div className='martes-main-bar'>
-                <h3>MainBar</h3>
                 <MainLogo />
                 <MainNav
                     selectedView={this.props.selectedView}

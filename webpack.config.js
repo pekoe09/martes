@@ -12,7 +12,7 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: path.join(__dirname, '.'),
+                test: /\.jsx?$/,
                 exclude: /(node_modules)/,
                 loader: 'babel-loader',
                 query: {
@@ -20,6 +20,14 @@ module.exports = {
                     presets: ['env', 'react'],
                     plugins: 'transform-object-rest-spread'
                 },                
+            },
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                    {
+                        loader: 'file-loader?name=/img/[name].[ext]',
+                    }
+                ]
             }
         ]
     },

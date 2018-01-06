@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import logo from '../../img/martes.png';
 
 class MainLogo extends Component {
 
     render() {
         return (
             <div className='martes-main-logo'>
-                <h3>MainLogo</h3>
+                <img src={logo} />
             </div>
         )
     }

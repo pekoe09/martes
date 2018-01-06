@@ -6,35 +6,55 @@
 	left: 0;
 	width: 100%;
 	padding: 5px;
+	display: flex;
 	background-color: #e6ffff;
 }
 
 .martes-main-bar {
 	padding: 5px;
 	float: left;
-	width: 80%;
-	background-color: #80ffff;	
-
+	width: calc(100% - 192px);
+	background-color: white;	
+	border-bottom: 3px #004d80 solid;
 }
 
 .martes-main-logo {
 	padding: 5px;
 	float: left;
-	width: 100px;
-	background-color: #00e6e6;
+	min-width: 100px;
+	background-color: white;
 }
 
 .martes-main-nav {
 	float: left;
-	background-color: #00e6e6;
+	background-color: #b3e0ff;
 	font-size: 15px;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	margin-top: 60px;
+	margin-left: 50px;
 }
 
 .martes-user-panel {
 	padding: 5px;
 	float: right;
-	background-color: #008080;
+	background-color: #004d80;
+	color: white;
+	margin-right: 10px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 12px;
+}
+
+.martes-user-panel p {
+	margin: 5px 0 0 0;
+}
+
+.martes-user-panel button {
+	font-size: 12px;
+	width: 100%;
+}
+
+.martes-view-panel {
+	padding-top: 1px;
 }
 
 .menu-enter {

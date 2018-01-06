@@ -13,7 +13,6 @@ class MainHeader extends Component {
     render() {
         return (
             <div className='martes-main-header'>
-                <h3>MainHeader</h3>
                 <MainBar 
                     selectedView={this.props.selectedView}
                     setView={this.props.setView}

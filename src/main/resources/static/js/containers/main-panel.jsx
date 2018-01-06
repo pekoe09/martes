@@ -23,7 +23,6 @@ class MainPanel extends Component {
     render() {
         return (
             <div className='martes-main-panel'>
-                <h3>MainPanel</h3>
                 <MainHeader 
                     selectedView={this.state.selectedView}
                     setView={this.setView}
