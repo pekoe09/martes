@@ -1,0 +1,136 @@
+@charset "UTF-8";
+
+.martes-main-header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 5px;
+	display: flex;
+	background-color: #e6ffff;
+}
+
+.martes-main-bar {
+	padding: 5px;
+	float: left;
+	width: calc(100% - 192px);
+	background-color: white;	
+	border-bottom: 3px #004d80 solid;
+}
+
+.martes-main-logo {
+	padding: 5px;
+	float: left;
+	min-width: 100px;
+	background-color: white;
+}
+
+.martes-main-nav {
+	float: left;
+	background-color: #b3e0ff;
+	font-size: 15px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	margin-top: 60px;
+	margin-left: 50px;
+}
+
+.martes-user-panel {
+	padding: 5px;
+	float: right;
+	background-color: #004d80;
+	color: white;
+	margin-right: 10px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 12px;
+}
+
+.martes-user-panel p {
+	margin: 5px 0 0 0;
+}
+
+.martes-user-panel button {
+	font-size: 12px;
+	width: 100%;
+}
+
+.martes-view-panel {
+	padding-top: 1px;
+}
+
+.menu-enter {
+	max-height: 0px;
+	/*-webkit-transition: max-height ls ease;*/
+	overflow: hidden;
+}
+
+.menu-enter.menu-enter-active {
+	height: auto;
+	max-height: 100px;
+}
+
+.menu-leave {
+	max-height: 100px;
+	/*-webkit-transition: max-height ls ease;*/
+}
+
+.menu-leave.menu-leave-active {
+	overflow: hidden;
+	max-height: 0px;
+}
+
+nav {
+	background-color: white;
+	display: block;
+	margin: 8px 12px 8px 12px;
+	overflow: hidden;
+	border: 1px solid #dedede;
+	border-radius: 4px;
+	box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.5);
+}
+
+nav ul {
+	padding: 0;
+	margin: 0;
+}
+
+nav ul li {
+	display: inline-block;
+	list-style-type: none;
+	padding: 5px 20px;
+	font-weight: 600;
+	line-height: 2;
+}
+
+nav ul li:hover {
+	background-color: slategrey;
+}
+
+nav ul li a {
+	display: block;
+	text-decoration: none;
+	color: black;
+}
+
+nav ul li a:hover {
+	color: white;
+}
+
+nav > ul > li > div {
+	margin: 0;
+	display: none;
+	position: absolute;
+	visibility: hidden;
+	z-index: 100;
+	background-color: white;
+	border: 1px solid darkblue;
+}
+
+nav > ul > li > div ul > li {
+	display: block;
+}
+
+nav > ul > li:hover > div {
+	display: block;
+	opacity: 1;
+	visibility: visible;
+}
