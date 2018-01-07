@@ -10,9 +10,6 @@ class ViewList extends Component {
     }
 
     render() {
-        /*var assets = this.props.data.map(asset =>
-            <p key={asset._links.self.href}>{asset.name}</p>
-        );*/
         let columns = [{
             Header: 'Name',
             accessor: 'name'
