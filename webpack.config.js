@@ -28,6 +28,13 @@ module.exports = {
                         loader: 'file-loader?name=/img/[name].[ext]',
                     }
                 ]
+            },
+            {
+            	test: /\.css$/,
+            	use: [
+            		{ loader: 'style-loader' },
+            		{ loader: 'css-loader' }
+            	]
             }
         ]
     },

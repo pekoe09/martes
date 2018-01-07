@@ -13,6 +13,9 @@ class ViewPanel extends Component {
         this.state = {
             data: []
         };
+        this.isListView = this.isListView.bind(this);
+        this.isAddView = this.isAddView.bind(this);
+        this.isEditView = this.isEditView.bind(this); 
     }
     
     componentDidMount() {
@@ -21,18 +24,44 @@ class ViewPanel extends Component {
            this.setState({data: response.entity._embedded.assets}); 
         });
     }
+    
+    isListView(viewName) {
+        if(viewName.toLowerCase().includes("list")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    isAddView(viewName) {
+        if(viewName.toLowerCase().includes("add")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    isEditView(viewName) {
+        if(viewName.toLowerCase().includes("edit")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     render() {
         return (
             <div className='martes-view-panel'>
                 <h3>ViewPanel</h3>
                 <ViewBar
-                    
+                    selectedView={this.props.selectedView}
                 />
+                {this.isListView(this.props.selectedView) &&
                 <ViewList
                     list={this.props.selectedView}
                     data={this.state.data}
                 />
+                }
             </div>
         )
     }
