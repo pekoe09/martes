@@ -16,12 +16,12 @@ class AssetAdd extends Component {
     handleSubmit(e) {
         e.preventDefault();
         var newAsset = {};
-        attributes.forEach(attribute => {
-            newAsset[attribute] = ReactDOM.findDOMNode(this.refs[attribute]).value = '';
+        this.attributes.forEach(attribute => {
+            newAsset[attribute] = ReactDOM.findDOMNode(this.refs[attribute]).value.trim();
         });
         this.props.onCreate(newAsset);
         
-        attributes.forEach(attribute => {
+        this.attributes.forEach(attribute => {
             ReactDOM.findDOMNode(this.refs[attribute]).value = '';
         });
     }

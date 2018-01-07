@@ -52,7 +52,8 @@ class ViewPanel extends Component {
     }
     
     onCreate(newItem) {
-        
+        console.log("onCreate called with");
+        console.log(newItem);
     }
 
     render() {
