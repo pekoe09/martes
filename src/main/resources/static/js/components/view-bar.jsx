@@ -10,14 +10,14 @@ class ViewBar extends Component {
     render() {
         return (
             <div className='martes-view-bar'>
-                <h3>ViewBar</h3>
+                <h3>{this.props.selectedView}</h3>
             </div>
         )
     }
 }
 
 ViewBar.propTypes = {
-    
+    selectedView: PropTypes.string
 }
 
 export default ViewBar;
