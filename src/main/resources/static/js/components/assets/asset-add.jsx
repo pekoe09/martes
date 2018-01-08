@@ -19,7 +19,7 @@ class AssetAdd extends Component {
         this.attributes.forEach(attribute => {
             newAsset[attribute] = ReactDOM.findDOMNode(this.refs[attribute]).value.trim();
         });
-        this.props.onCreate(newAsset);
+        this.props.onCreate(newAsset, "assets");
         
         this.attributes.forEach(attribute => {
             ReactDOM.findDOMNode(this.refs[attribute]).value = '';
