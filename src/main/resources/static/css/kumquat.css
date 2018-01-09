@@ -7,7 +7,7 @@
 	width: 100%;
 	padding: 5px;
 	display: flex;
-	background-color: #e6ffff;
+	background-color: white;
 }
 
 .martes-main-bar {
@@ -27,7 +27,7 @@
 
 .martes-main-nav {
 	float: left;
-	background-color: #b3e0ff;
+	background-color: white;
 	font-size: 15px;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	margin-top: 60px;
@@ -97,7 +97,6 @@ nav ul li {
 	display: inline-block;
 	list-style-type: none;
 	padding: 5px 20px;
-	font-weight: 600;
 	line-height: 2;
 }
 
@@ -108,7 +107,7 @@ nav ul li:hover {
 nav ul li a {
 	display: block;
 	text-decoration: none;
-	color: black;
+	color: #004d80;
 }
 
 nav ul li a:hover {
