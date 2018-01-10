@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import client from '../utils/client';
+import follow from '../utils/follow';
 
 import ViewList from '../components/view-list.jsx';
 import ViewAdd from '../components/view-add.jsx';
 import ViewBar from '../components/view-bar.jsx';
+
+const root = '/api';
 
 class ViewPanel extends Component {
 
@@ -51,9 +54,19 @@ class ViewPanel extends Component {
         }
     }
     
-    onCreate(newItem) {
+    onCreate(newItem, collectionName) {
         console.log("onCreate called with");
         console.log(newItem);
+        follow(client, root, [collectionName]).then(collection => {
+           return client({
+               method: 'POST',
+               path: collection.entity._links.self.href,
+               entity: newItem,
+               headers: {'Content-Type': 'application/json'}
+            });
+        }).then(response => {
+           return follow(client, root, [{rel: collectionName, params: {}}]); 
+        });
     }
 
     render() {
