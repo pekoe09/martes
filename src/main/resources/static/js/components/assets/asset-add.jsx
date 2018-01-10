@@ -2,37 +2,58 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
+import Button from '../button.jsx';
+import FormField from '../form-field.jsx';
+
 class AssetAdd extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            name: ""
+        };
+
+        this.handleNameChange = this.handleNameChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        
-        this.attributes = [
-                           'name'
-                           ];
+        this.clearForm = this.clearForm.bind(this);
     }
     
+    handleNameChange(e) {
+        this.setState({ name: e.target.value });
+    }
+
     handleSubmit(e) {
         e.preventDefault();
-        var newAsset = {};
-        this.attributes.forEach(attribute => {
-            newAsset[attribute] = ReactDOM.findDOMNode(this.refs[attribute]).value.trim();
-        });
-        this.props.onCreate(newAsset);
-        
-        this.attributes.forEach(attribute => {
-            ReactDOM.findDOMNode(this.refs[attribute]).value = '';
-        });
+        var newAsset = {
+            name: this.state.name
+        };        
+        this.props.onCreate(newAsset);        
+        this.clearForm();
+    }
+
+    clearForm() {
+
     }
     
     render() {
         return (
             <div>
-                <label htmlFor='name'>Name</label>
-                <input type='text' id='name' ref='name' />
-                <form>
-                    <button onClick={this.handleSubmit}>Create</button>
+                <form>                   
+                    <FormField
+                        id={'name'}
+                        label={'Name'}
+                        inputType={'text'}
+                        content={this.state.name}
+                        changeHandler={this.handleNameChange}
+                    />
+                    <p>          
+                        <Button 
+                            id={"assetAdd"}
+                            text={"Create"}
+                            type={"primary"}
+                            clickHandler={this.handleSubmit}
+                        />                        
+                    </p>
                 </form>
             </div>
         )
