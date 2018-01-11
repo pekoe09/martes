@@ -57,9 +57,55 @@
 	padding-top: 1px;
 }
 
+.martes-form-label {
+	margin-bottom: 0;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 12px;
+}
+
+.martes-form-input {
+	margin-top: 0;
+}
+
+.martes-btn-primary {
+	background-color: #004d80;
+	color: white;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 12px;
+}
+
+.martes-btn-success {
+	background-color: #004d80;
+	color: white;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 12px;
+}
+
+.martes-btn-warning {
+	background-color: #d68305;
+	color: black;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 12px;
+}
+
+.martes-btn-danger {
+	background-color: #b30404;
+	color: white;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 12px;
+}
+
+.martes-btn-default {
+	background-color: lightgray;
+	color: darkgray;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 12px;
+}
+
+/*
 .menu-enter {
 	max-height: 0px;
-	/*-webkit-transition: max-height ls ease;*/
+	-webkit-transition: max-height ls ease;
 	overflow: hidden;
 }
 
@@ -70,13 +116,14 @@
 
 .menu-leave {
 	max-height: 100px;
-	/*-webkit-transition: max-height ls ease;*/
+	-webkit-transition: max-height ls ease;
 }
 
 .menu-leave.menu-leave-active {
 	overflow: hidden;
 	max-height: 0px;
 }
+*/
 
 nav {
 	background-color: white;
