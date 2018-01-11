@@ -27,7 +27,7 @@ class AssetAdd extends Component {
         var newAsset = {
             name: this.state.name
         };        
-        this.props.onCreate(newAsset);        
+        this.props.onCreate(newAsset, 'assets');        
         this.clearForm();
     }
 
