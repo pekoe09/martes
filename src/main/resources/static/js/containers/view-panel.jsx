@@ -44,8 +44,9 @@ class ViewPanel extends Component {
         let collectionName = this.viewCollectionMap[viewName];
         client({method: 'GET', path: '/api/' + collectionName}).then(response => {
             if(this.optionData[collectionName]) {
-                console.log("Option data: " + response);
-                this.setState({data: response[0]});
+                console.log("Option data: ");
+                console.log(response);
+                this.setState({data: response.entity});
             } else {
                 this.setState({data: response.entity._embedded[collectionName]}); 
             }
@@ -88,6 +89,7 @@ class ViewPanel extends Component {
             });
         }).then(response => {
            return follow(client, root, [{rel: collectionName, params: {}}]); 
+        }).then(() => {this.setState({data: []});
         }).then(() => {this.props.setView(this.createRedirectMap[collectionName])});
     }
 

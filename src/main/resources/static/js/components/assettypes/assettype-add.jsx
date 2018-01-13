@@ -42,6 +42,7 @@ class AssetTypeAdd extends Component {
                     <FormField
                         id={'name'}
                         label={'Name of the asset type'}
+                        fieldType={'input'}
                         inputType={'text'}
                         content={this.state.name}
                         changeHandler={this.handleNameChange}

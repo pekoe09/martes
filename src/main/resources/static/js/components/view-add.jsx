@@ -16,6 +16,7 @@ class ViewAdd extends Component {
                 {
                     this.props.selectedView == 'assetAdd' &&
                     <AssetAdd
+                        data={this.props.data}
                         getData={this.props.getData}
                         onCreate={this.props.onCreate}                        
                     />

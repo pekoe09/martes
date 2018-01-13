@@ -78,7 +78,13 @@ class AssetAdd extends Component {
                         content={this.state.name}
                         changeHandler={this.handleNameChange}
                     />
-                    
+                    <FormField
+                        id={'assetType'}
+                        label={'Asset type'}
+                        fieldType={'select'}
+                        options={this.props.data ? this.props.data.assetTypes : []}
+                        changeHandler={this.handleAssetTypeChange}
+                    />
                     <FormField
                         id={'extid1'}
                         label={'External id 1'}
@@ -110,9 +116,9 @@ class AssetAdd extends Component {
 }
 
 AssetAdd.propTypes = {
+    data: PropTypes.any,
     getData: PropTypes.func,
     onCreate: PropTypes.func.isRequired,
-
 }
 
 export default AssetAdd;

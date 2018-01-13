@@ -13,15 +13,19 @@ class FormSelect extends Component {
             onChange: this.props.changeHandler,
         }
 
-        let optionSet = options.map(option => {
-            return (
-                <option
-                    value={option.value}
-                >
-                    {option.display}
-                </option>
-            );
-        });
+        let optionSet = "";
+        if(this.props.options) {
+            optionSet = this.props.options.map(option => {
+                return (
+                    <option
+                        value={option.id}
+                        key={option.id}
+                    >
+                        {option.name}
+                    </option>
+                );
+            });
+        }
 
         return (
             <p className='martes-form-select'>
@@ -38,7 +42,7 @@ FormSelect.propTypes = {
     id: PropTypes.string.isRequired,
     classNames: PropTypes.string,
     placeholder: PropTypes.string,
-    options: PropTypes.array.isRequired,
+    options: PropTypes.array,
     selectedOption: PropTypes.string,
     changeHandler: PropTypes.func.isRequired
 }
