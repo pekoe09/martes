@@ -17,17 +17,39 @@ class ViewPanel extends Component {
         this.state = {
             data: []
         };
+
+        this.viewCollectionMap = {
+            assetAdd: 'assetOptions',
+            assetList: 'assets',
+            assetTypeList: 'assetTypes', 
+        }
+
+        this.optionData = {
+            assetOptions: ['assetTypes']
+        }
+
+        this.createRedirectMap = {
+            assets: 'assetList',
+            assetTypes: 'assetTypeList',
+        }
+
         this.isListView = this.isListView.bind(this);
         this.isAddView = this.isAddView.bind(this);
         this.isEditView = this.isEditView.bind(this); 
+        this.getData = this.getData.bind(this);
         this.onCreate = this.onCreate.bind(this);
     }
-    
-    componentDidMount() {
-        console.log("Loading asset data");
-        client({method: 'GET', path: '/api/assets'}).then(response => {
-           this.setState({data: response.entity._embedded.assets}); 
-        });
+
+    getData(viewName) {
+        let collectionName = this.viewCollectionMap[viewName];
+        client({method: 'GET', path: '/api/' + collectionName}).then(response => {
+            if(this.optionData[collectionName]) {
+                console.log("Option data: " + response);
+                this.setState({data: response[0]});
+            } else {
+                this.setState({data: response.entity._embedded[collectionName]}); 
+            }
+         });
     }
     
     isListView(viewName) {
@@ -66,13 +88,12 @@ class ViewPanel extends Component {
             });
         }).then(response => {
            return follow(client, root, [{rel: collectionName, params: {}}]); 
-        });
+        }).then(() => {this.props.setView(this.createRedirectMap[collectionName])});
     }
 
     render() {
         return (
             <div className='martes-view-panel'>
-                <h3>ViewPanel</h3>
                 <ViewBar
                     selectedView={this.props.selectedView}
                 />
@@ -80,11 +101,14 @@ class ViewPanel extends Component {
                 <ViewList
                     list={this.props.selectedView}
                     data={this.state.data}
+                    getData={this.getData}
                 />
                 }
                 {this.isAddView(this.props.selectedView) &&
                 <ViewAdd
                     selectedView={this.props.selectedView}
+                    data={this.state.data}
+                    getData={this.getData}
                     onCreate={this.onCreate}
                 />
                 }
@@ -94,7 +118,8 @@ class ViewPanel extends Component {
 }
 
 ViewPanel.propTypes = {
-    selectedView: PropTypes.string,
+    selectedView: PropTypes.string.isRequired,
+    setView: PropTypes.func.isRequired
 }
 
 export default ViewPanel;

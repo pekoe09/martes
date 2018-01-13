@@ -9,6 +9,10 @@ class ViewList extends Component {
         super(props);
     }
 
+    componentDidMount() {
+        this.props.getData('assetList');
+    }
+
     render() {
         let columns = [{
             Header: 'Name',
@@ -28,7 +32,8 @@ class ViewList extends Component {
 
 ViewList.propTypes = {
     list: PropTypes.string,
-    data: PropTypes.arrayOf(PropTypes.object)
+    data: PropTypes.arrayOf(PropTypes.object),
+    getData: PropTypes.func
 }
 
 export default ViewList;

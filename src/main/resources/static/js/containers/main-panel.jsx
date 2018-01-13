@@ -29,6 +29,7 @@ class MainPanel extends Component {
                 />
                 <ViewPanel 
                     selectedView={this.state.selectedView}
+                    setView={this.setView}
                 />
             </div>
         )
