@@ -40,6 +40,12 @@ class ViewPanel extends Component {
         this.onCreate = this.onCreate.bind(this);
     }
 
+    componentWillReceiveProps(nextProps) {
+        if(this.isListView(nextProps.selectedView)) {
+            this.setState({data: []});
+        }
+    }
+
     getData(viewName) {
         let collectionName = this.viewCollectionMap[viewName];
         client({method: 'GET', path: '/api/' + collectionName}).then(response => {
@@ -101,7 +107,7 @@ class ViewPanel extends Component {
                 />
                 {this.isListView(this.props.selectedView) &&
                 <ViewList
-                    list={this.props.selectedView}
+                    selectedView={this.props.selectedView}
                     data={this.state.data}
                     getData={this.getData}
                 />
