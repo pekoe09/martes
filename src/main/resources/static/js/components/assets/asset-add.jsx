@@ -47,9 +47,10 @@ class AssetAdd extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        let assetTypeHref = 'http://localhost:8080/api/assetTypes/' + this.state.assetType;
         var newAsset = {
             name: this.state.name,
-            assetType: this.state.assetType,
+            assetType: assetTypeHref,
             extId1: this.state.extId1,
             extId1: this.state.extId2,
         };        

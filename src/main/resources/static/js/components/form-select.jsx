@@ -20,7 +20,7 @@ class FormSelect extends Component {
                     <option
                         value={option.id}
                         key={option.id}
-                    >
+                    >                        
                         {option.name}
                     </option>
                 );
@@ -30,6 +30,7 @@ class FormSelect extends Component {
         return (
             <p className='martes-form-select'>
                 <select {...attributes}>
+                    <option value="">Not selected</option>
                     {optionSet}
                 </select>
             </p>
