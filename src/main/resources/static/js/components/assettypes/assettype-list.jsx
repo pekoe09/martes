@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 
-class AssetList extends Component {
+class AssetTypeList extends Component {
 
     constructor(props) {
         super(props);
     }
 
     componentDidMount() {
-        this.props.getData('assetList');
+        this.props.getData('assetTypeList');
     }
 
     render() {
@@ -30,9 +30,9 @@ class AssetList extends Component {
     }
 }
 
-AssetList.propTypes = {
+AssetTypeList.propTypes = {
     data: PropTypes.arrayOf(PropTypes.object),
     getData: PropTypes.func
 }
 
-export default AssetList;
+export default AssetTypeList;

@@ -3,35 +3,41 @@ import PropTypes from 'prop-types';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 
+import AssetList from './assets/asset-list.jsx';
+import AssetTypeList from './assettypes/assettype-list.jsx';
+
 class ViewList extends Component {
 
     constructor(props) {
         super(props);
     }
 
-    render() {
-        /*var assets = this.props.data.map(asset =>
-            <p key={asset._links.self.href}>{asset.name}</p>
-        );*/
-        let columns = [{
-            Header: 'Name',
-            accessor: 'name'
-        }];
-        
+    render() {        
         return (
-            <div className='martes-view-list'>
-                <ReactTable
-                    data={this.props.data}
-                    columns={columns}
-                />                
+            <div>
+                {
+                    this.props.selectedView === 'assetList' &&
+                    <AssetList
+                        data={this.props.data}
+                        getData={this.props.getData}
+                    />
+                }   
+                {
+                    this.props.selectedView === 'assetTypeList' &&
+                    <AssetTypeList
+                        data={this.props.data}
+                        getData={this.props.getData}
+                    />
+                }            
             </div>
         )
     }
 }
 
 ViewList.propTypes = {
-    list: PropTypes.string,
-    data: PropTypes.arrayOf(PropTypes.object)
+    selectedView: PropTypes.string.isRequired,
+    data: PropTypes.arrayOf(PropTypes.object),
+    getData: PropTypes.func
 }
 
 export default ViewList;

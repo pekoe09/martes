@@ -7,7 +7,7 @@
 	width: 100%;
 	padding: 5px;
 	display: flex;
-	background-color: #e6ffff;
+	background-color: white;
 }
 
 .martes-main-bar {
@@ -27,7 +27,7 @@
 
 .martes-main-nav {
 	float: left;
-	background-color: #b3e0ff;
+	background-color: white;
 	font-size: 15px;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	margin-top: 60px;
@@ -57,25 +57,64 @@
 	padding-top: 1px;
 }
 
-.menu-enter {
-	max-height: 0px;
-	/*-webkit-transition: max-height ls ease;*/
-	overflow: hidden;
+.martes-view-title {
+	margin-left: 5%;
+	color: #004d80;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 24px;
 }
 
-.menu-enter.menu-enter-active {
-	height: auto;
-	max-height: 100px;
+.martes-form {
+	margin-left: 5%;
 }
 
-.menu-leave {
-	max-height: 100px;
-	/*-webkit-transition: max-height ls ease;*/
+.martes-form-label {
+	margin-bottom: 0;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 12px;
 }
 
-.menu-leave.menu-leave-active {
-	overflow: hidden;
-	max-height: 0px;
+.martes-form-input {
+	margin-top: 0;
+}
+
+.martes-form-select {
+	margin-top: 0;
+}
+
+.martes-btn-primary {
+	background-color: #004d80;
+	color: white;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 12px;
+}
+
+.martes-btn-success {
+	background-color: #004d80;
+	color: white;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 12px;
+}
+
+.martes-btn-warning {
+	background-color: #d68305;
+	color: black;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 12px;
+}
+
+.martes-btn-danger {
+	background-color: #b30404;
+	color: white;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 12px;
+}
+
+.martes-btn-default {
+	background-color: lightgray;
+	color: darkgray;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 12px;
 }
 
 nav {
@@ -97,7 +136,6 @@ nav ul li {
 	display: inline-block;
 	list-style-type: none;
 	padding: 5px 20px;
-	font-weight: 600;
 	line-height: 2;
 }
 
@@ -108,7 +146,7 @@ nav ul li:hover {
 nav ul li a {
 	display: block;
 	text-decoration: none;
-	color: black;
+	color: #004d80;
 }
 
 nav ul li a:hover {
