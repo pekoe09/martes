@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import AssetAdd from './assets/asset-add.jsx';
+import AssetTypeAdd from './assettypes/assettype-add.jsx';
 
 class ViewAdd extends Component {
     
@@ -11,16 +12,32 @@ class ViewAdd extends Component {
     
     render() {
         return (
-            <AssetAdd
-                onCreate={this.props.onCreate}
-            />
+            <div>
+                {
+                    this.props.selectedView == 'assetAdd' &&
+                    <AssetAdd
+                        data={this.props.data}
+                        getData={this.props.getData}
+                        onCreate={this.props.onCreate}                        
+                    />
+                }
+                {
+                    this.props.selectedView == 'assetTypeAdd' &&
+                    <AssetTypeAdd
+                        getData={this.props.getData}
+                        onCreate={this.props.onCreate}
+                    />
+                }
+            </div>
         )
     }
 }
 
 ViewAdd.propTypes = {
-    selectedView: PropTypes.string,
-    onCreate: PropTypes.func
+    selectedView: PropTypes.string.isRequired,
+    data: PropTypes.any,
+    getData: PropTypes.func,
+    onCreate: PropTypes.func.isRequired
 }
 
 export default ViewAdd;

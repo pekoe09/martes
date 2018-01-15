@@ -10,41 +10,97 @@ class AssetAdd extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: ""
+            name: "",
+            assetType: "",
+            extId1: "",
+            extId2: "",
         };
 
         this.handleNameChange = this.handleNameChange.bind(this);
+        this.handleAssetTypeChange = this.handleAssetTypeChange.bind(this);
+        this.handleExtId1Change = this.handleExtId1Change.bind(this);
+        this.handleExtId2Change = this.handleExtId2Change.bind(this);
+
         this.handleSubmit = this.handleSubmit.bind(this);
         this.clearForm = this.clearForm.bind(this);
+    }
+
+    componentDidMount() {
+        this.props.getData('assetAdd');
     }
     
     handleNameChange(e) {
         this.setState({ name: e.target.value });
     }
 
+    handleAssetTypeChange(e) {
+        this.setState({ assetType: e.target.value });
+    }
+
+    handleExtId1Change(e) {
+        this.setState({ extId1: e.target.value });
+    }
+
+    handleExtId2Change(e) {
+        this.setState({ extId2: e.target.value });
+    }
+
     handleSubmit(e) {
         e.preventDefault();
+        let assetTypeHref = 'http://localhost:8080/api/assetTypes/' + this.state.assetType;
         var newAsset = {
-            name: this.state.name
+            name: this.state.name,
+            assetType: assetTypeHref,
+            extId1: this.state.extId1,
+            extId1: this.state.extId2,
         };        
         this.props.onCreate(newAsset, 'assets');        
         this.clearForm();
     }
 
     clearForm() {
-
+        this.setState({
+            name: "",
+            assetType: "",
+            extId1: "",
+            extId2: "",
+        });
     }
     
     render() {
         return (
             <div>
-                <form>                   
+                <form className='martes-form'>                   
                     <FormField
                         id={'name'}
-                        label={'Name'}
+                        label={'Asset name'}
+                        fieldType={'input'}
                         inputType={'text'}
                         content={this.state.name}
                         changeHandler={this.handleNameChange}
+                    />
+                    <FormField
+                        id={'assetType'}
+                        label={'Asset type'}
+                        fieldType={'select'}
+                        options={this.props.data ? this.props.data.assetTypes : []}
+                        changeHandler={this.handleAssetTypeChange}
+                    />
+                    <FormField
+                        id={'extid1'}
+                        label={'External id 1'}
+                        fieldType={'input'}
+                        inputType={'text'}
+                        content={this.state.extId1}
+                        changeHandler={this.handleExtId1Change}
+                    />
+                    <FormField
+                        id={'extid2'}
+                        label={'External id 2'}
+                        fieldType={'input'}
+                        inputType={'text'}
+                        content={this.state.extId2}
+                        changeHandler={this.handleExtId2Change}
                     />
                     <p>          
                         <Button 
@@ -61,7 +117,9 @@ class AssetAdd extends Component {
 }
 
 AssetAdd.propTypes = {
-    onCreate: PropTypes.func
+    data: PropTypes.any,
+    getData: PropTypes.func,
+    onCreate: PropTypes.func.isRequired,
 }
 
 export default AssetAdd;

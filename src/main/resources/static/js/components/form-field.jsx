@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import FormLabel from './form-label.jsx';
 import FormInput from './form-input.jsx';
+import FormSelect from './form-select.jsx';
 
 class FormField extends Component {
 
@@ -32,14 +33,36 @@ class FormField extends Component {
             inputAttributes.placeholder = this.props.placeholder;
         }
 
+        let selectAttributes = {
+            id: this.props.id,
+            options: this.props.options,
+            selectedOption: this.props.selectedOption,
+            changeHandler: this.props.changeHandler,
+        };
+        if(this.props.classNames) {
+            selectAttributes.classNames = this.props.classNames;
+        }
+        if(this.props.placeholder) {
+            selectAttributes.placeholder = this.props.placeholder;
+        }
+
         return (
             <div>
                 <FormLabel
                     {...labelAttributes}
                 />
-                <FormInput
-                    {...inputAttributes}
-                />
+                {
+                    this.props.fieldType === 'input' &&
+                    <FormInput
+                        {...inputAttributes}
+                    />
+                }
+                {
+                    this.props.fieldType === 'select' &&
+                    <FormSelect
+                        {...selectAttributes}
+                    />
+                }
             </div>
         )
     }
@@ -50,14 +73,17 @@ FormField.propTypes = {
     classNames: PropTypes.string,
     label: PropTypes.string,
     placeholder: PropTypes.string,
-    inputType: PropTypes.oneOf([
-        'text', 
-        'number'
+    fieldType: PropTypes.oneOf([
+        'input',
+        'select',
     ]).isRequired,
+    inputType: PropTypes.string,
     content: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number
-    ]).isRequired,
+    ]),
+    options: PropTypes.array,
+    selectedOption: PropTypes.string,
     changeHandler: PropTypes.func.isRequired
 }
 
