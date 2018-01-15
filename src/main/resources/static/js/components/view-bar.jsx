@@ -9,10 +9,12 @@ class ViewBar extends Component {
 
     render() {
         let titleMap = {
-            assetList: "Asset list",
             assetAdd: "Add a new asset",
+            assetList: "Asset list",
+            assetTypeAdd: "Add a new asset type",
             assetTypeList: "Asset type list",
-            assetTypeAdd: "Add a new asset type"
+            organizationAdd: "Add a new organization",
+            organizationList: "Organization list",
         }
 
         let viewTitle = titleMap[this.props.selectedView];

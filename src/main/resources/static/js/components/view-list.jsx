@@ -5,6 +5,7 @@ import 'react-table/react-table.css';
 
 import AssetList from './assets/asset-list.jsx';
 import AssetTypeList from './assettypes/assettype-list.jsx';
+import OrganizationList from './organizations/organization-list.jsx';
 
 class ViewList extends Component {
 
@@ -28,7 +29,14 @@ class ViewList extends Component {
                         data={this.props.data}
                         getData={this.props.getData}
                     />
-                }            
+                }  
+                {
+                    this.props.selectedView === 'organizationList' &&
+                    <OrganizationList
+                        data={this.props.data}
+                        getData={this.props.getData}
+                    />
+                }           
             </div>
         )
     }

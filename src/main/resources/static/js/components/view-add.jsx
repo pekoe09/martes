@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import AssetAdd from './assets/asset-add.jsx';
 import AssetTypeAdd from './assettypes/assettype-add.jsx';
+import OrganizationAdd from './organizations/organization-add.jsx';
 
 class ViewAdd extends Component {
     
@@ -24,7 +25,12 @@ class ViewAdd extends Component {
                 {
                     this.props.selectedView == 'assetTypeAdd' &&
                     <AssetTypeAdd
-                        getData={this.props.getData}
+                        onCreate={this.props.onCreate}
+                    />
+                }
+                {
+                    this.props.selectedView == 'organizationAdd' &&
+                    <OrganizationAdd
                         onCreate={this.props.onCreate}
                     />
                 }

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import FormLabel from './form-label.jsx';
 import FormInput from './form-input.jsx';
 import FormSelect from './form-select.jsx';
+import FormTextArea from './form-textarea.jsx';
 
 class FormField extends Component {
 
@@ -46,6 +47,25 @@ class FormField extends Component {
             selectAttributes.placeholder = this.props.placeholder;
         }
 
+        let textAreaAttributes = {
+            id: this.props.id,
+            inputType: this.props.inputType,   
+            content: this.props.content,
+            changeHandler: this.props.changeHandler,         
+        };
+        if(this.props.classNames) {
+            textAreaAttributes.classNames = this.props.classNames;            
+        }
+        if(this.props.placeholder) {
+            textAreaAttributes.placeholder = this.props.placeholder;
+        }
+        if(this.props.resize) {
+            textAreaAttributes.resize = this.props.resize;
+        }
+        if(this.props.rows) {
+            textAreaAttributes.rows = this.props.rows;
+        }
+
         return (
             <div>
                 <FormLabel
@@ -63,6 +83,12 @@ class FormField extends Component {
                         {...selectAttributes}
                     />
                 }
+                {
+                    this.props.fieldType === 'textarea' &&
+                    <FormTextArea
+                        {...textAreaAttributes}
+                    />
+                }
             </div>
         )
     }
@@ -76,12 +102,15 @@ FormField.propTypes = {
     fieldType: PropTypes.oneOf([
         'input',
         'select',
+        'textarea',
     ]).isRequired,
     inputType: PropTypes.string,
     content: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number
     ]),
+    rows: PropTypes.number,
+    resize: PropTypes.bool,
     options: PropTypes.array,
     selectedOption: PropTypes.string,
     changeHandler: PropTypes.func.isRequired

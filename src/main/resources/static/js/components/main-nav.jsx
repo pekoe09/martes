@@ -86,16 +86,22 @@ class MainNav extends Component {
                             itemName: "Company list",
                             clickHandler: this.props.setView,
                             target: "companyList"
-                        }, 
-                        {
+                        }, {
                             itemName: "New company",
                             clickHandler: this.props.setView,
                             target: "companyAdd"
-                        },
-                        {
+                        }, {
                             itemName: "Organization info",
                             clickHandler: this.props.setView,
                             target: "organizationDetails"
+                        }, {
+                            itemName: "Organization list",
+                            clickHandler: this.props.setView,
+                            target: "organizationList"
+                        }, {
+                            itemName: "New organization",
+                            clickHandler: this.props.setView,
+                            target: "organizationAdd"
                         }]}
                     />
                     <NavDropdown 

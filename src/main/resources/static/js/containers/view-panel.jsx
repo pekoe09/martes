@@ -22,6 +22,7 @@ class ViewPanel extends Component {
             assetAdd: 'assetOptions',
             assetList: 'assets',
             assetTypeList: 'assetTypes', 
+            organizationList: 'organizations',
         }
 
         this.optionData = {
@@ -31,6 +32,7 @@ class ViewPanel extends Component {
         this.createRedirectMap = {
             assets: 'assetList',
             assetTypes: 'assetTypeList',
+            organizations: 'organizationList',
         }
 
         this.isListView = this.isListView.bind(this);
