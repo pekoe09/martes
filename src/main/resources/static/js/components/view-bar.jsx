@@ -13,6 +13,8 @@ class ViewBar extends Component {
             assetList: "Asset list",
             assetTypeAdd: "Add a new asset type",
             assetTypeList: "Asset type list",
+            companyAdd: "Add a new company",
+            companyList: "Company list",
             organizationAdd: "Add a new organization",
             organizationList: "Organization list",
         }

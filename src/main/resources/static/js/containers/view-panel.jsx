@@ -22,16 +22,20 @@ class ViewPanel extends Component {
             assetAdd: 'assetOptions',
             assetList: 'assets',
             assetTypeList: 'assetTypes', 
+            companyAdd: 'companyOptions',
+            companyList: 'companies',
             organizationList: 'organizations',
         }
 
         this.optionData = {
-            assetOptions: ['assetTypes']
+            assetOptions: ['assetTypes'],
+            companyOptions: ['organizations'],
         }
 
         this.createRedirectMap = {
             assets: 'assetList',
             assetTypes: 'assetTypeList',
+            companies: 'companyList',
             organizations: 'organizationList',
         }
 
@@ -49,7 +53,9 @@ class ViewPanel extends Component {
     }
 
     getData(viewName) {
+        console.log("getdata called with " + viewName);
         let collectionName = this.viewCollectionMap[viewName];
+        console.log("collectionname " + collectionName);
         client({method: 'GET', path: '/api/' + collectionName}).then(response => {
             if(this.optionData[collectionName]) {
                 console.log("Option data: ");
